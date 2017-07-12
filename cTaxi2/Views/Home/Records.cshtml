@@ -1,0 +1,70 @@
+﻿@model IEnumerable<cTaxi2.ViewModel.DriverViewModel>
+
+@{
+    ViewBag.Title = "Dricers records";
+}
+<script src="~/Scripts/myJS.js"></script>
+<h2>Drivers </h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LicenceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginJob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastEyeCheck)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr name="driver" id="@item.LicenceID">
+        <td>
+            @Html.DisplayFor(modelItem => item.LicenceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginJob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastEyeCheck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit","Edit", new { id = item.LicenceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.LicenceID })
+        </td>
+    </tr>
+}
+
+</table>
